@@ -8,7 +8,7 @@ on:
 
 jobs:
   test-job:
-    runs-on: global  # Ensure the runner is tagged with 'global'
+    runs-on: [self-hosted, macOS, X64, global]  # Ensure the runner is tagged with 'global'
     
     steps:
       - name: Checkout code
