@@ -1,0 +1,34 @@
+name: Test Self-Hosted Runner
+
+on:
+  push:
+    branches:
+      - '*'
+  workflow_dispatch:  # Allows manual trigger via GitHub UI
+
+jobs:
+  test-job:
+    runs-on: [self-hosted, global]  # Ensure the runner is tagged with 'global'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Checkout the code from the repository
+
+      - name: Show runner details
+        run: |
+          echo "Running on self-hosted runner with the following details:"
+          echo "Runner name: $RUNNER_NAME"
+          echo "Runner OS: $RUNNER_OS"
+          echo "Runner architecture: $RUNNER_ARCH"
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Commit SHA: $GITHUB_SHA"
+
+      - name: Run a simple script
+        run: |
+          echo "This is a test on the self-hosted runner!"
+          echo "This runner is tagged with 'global'."
+
+      - name: Verify runner uptime
+        run: |
+          echo "Checking uptime..."
+          uptime
