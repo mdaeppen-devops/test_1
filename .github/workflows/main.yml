@@ -1,3 +1,11 @@
+name: Simple Test Runner
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Manually trigger the workflow
+
 jobs:
   test-job:
     runs-on: [self-hosted, macOS, X64, global]  # Ensure all labels match
