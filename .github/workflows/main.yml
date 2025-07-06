@@ -8,8 +8,7 @@ on:
 
 jobs:
   test-job:
-   # runs-on: [self-hosted, macOS, ARM64, global]  # Ensure all labels match
-    runs-on: self-hosted
+    runs-on: [self-hosted,macOS,X64]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
